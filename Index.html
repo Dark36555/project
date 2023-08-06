@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .choices {
+            margin-bottom: 10px;
+        }
+
+        .choice {
+            margin-bottom: 5px;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Online Quiz</h1>
+    <div class="question">
+        <h3>Question 1: What is the capital of France?</h3>
+        <div class="choices">
+            <div class="choice">
+                <input type="radio" name="q1" value="London"> London
+            </div>
+            <div class="choice">
+                <input type="radio" name="q1" value="Paris"> Paris
+            </div>
+            <div class="choice">
+                <input type="radio" name="q1" value="Berlin"> Berlin
+            </div>
+            <div class="choice">
+                <input type="radio" name="q1" value="Rome"> Rome
+            </div>
+        </div>
+    </div>
+    <div class="question">
+        <h3>Question 2: What is the largest planet in our solar system?</h3>
+        <div class="choices">
+            <div class="choice">
+                <input type="radio" name="q2" value="Venus"> Venus
+            </div>
+            <div class="choice">
+                <input type="radio" name="q2" value="Mars"> Mars
+            </div>
+            <div class="choice">
+                <input type="radio" name="q2" value="Saturn"> Saturn
+            </div>
+            <div class="choice">
+                <input type="radio" name="q2" value="Jupiter"> Jupiter
+            </div>
+        </div>
+    </div>
+    <!-- Add more questions here -->
+
+    <button class="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+    <p class="result" id="result"></p>
+
+    <script>
+        function submitQuiz() {
+            // Get the user's answers
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            // Add more questions here
+
+            // Calculate the score
+            let score = 0;
+            if (q1 && q1.value === "Paris") {
+                score++;
+            }
+            if (q2 && q2.value === "Jupiter") {
+                score++;
+            }
+            // Add more conditions for other questions
+
+            // Display the result
+            const resultElement = document.getElementById("result");
+            resultElement.textContent = `You scored ${score} out of ${totalQuestions()}`;
+        }
+
+        function totalQuestions() {
+            // Return the total number of questions
+            return 2; // Change this to the actual number of questions
+        }
+    </script>
+</body>
+
+</html>    
